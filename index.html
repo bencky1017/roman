@@ -16,12 +16,14 @@
 </head>
 
 <body>
-    <div class="header">
-        <div class="header_title">罗马数字转换</div>
-        <input id="input" type="button" value="打开控制台(无效)" disabled style="cursor: not-allowed;width: 150px;">
-        <div class="header_home">吟风工具箱</div>
+    <div class="top">
+        <div class="header">
+            <div class="header_title">罗马数字转换</div>
+            <input id="input" type="button" value="打开控制台(无效)" disabled style="cursor: not-allowed;width: 150px;">
+            <div class="header_home">吟风工具箱</div>
+        </div>
     </div>
-    <div class="wrapper">
+    <div class="wrapper" id="wrapper">
         <div class="contain">
             <div class="get_value">
                 <div class="get_value_tips">输入罗马或阿拉伯数字 :</div>
@@ -89,7 +91,8 @@
                     </div>
                     <div class="rule_list">
                         <b><i>加线乘千：</i></b>
-                        <p>字符上加线，表示数值*1000，此处用*表示线，V*=5000，I*等于M，II*非法等于MM，VII*=7000</p>
+                        <p>字符上加线，表示数值*1000，<span
+                                style="color: #ff6969;">此处用*表示线</span>，V*=5000，I*等于M，II*非法等于MM，VII*=7000</p>
                     </div>
                     <div class="rule_list">
                         <b><i>半级不复：</i></b>
@@ -98,6 +101,17 @@
                     <div class="rule_list">
                         <b><i>非法输入：</i></b>
                         <p>X*MM=10,000+2,000=12,000，正确应该是XII*,存在*M时候，可以换成I*，*MMM可以换成III*</p>
+                    </div>
+                </div>
+                <div class="roman_example">
+                    <h3>罗马数字错误示例</h3>
+                    <div class="rule_list">
+                        <b><i>逻辑错误：</i></b>
+                        <p>罗马数字：VVLILLLL（实际不存在），<a href="javascript:$('.get_value_input').val('VVLILLLL');$('.get_value_btn').click();document.getElementById('wrapper').scrollIntoView({ behavior: 'smooth' });" style="color: #ff6969;">点击此处</a>可以列出所有的逻辑错误</p>
+                    </div>
+                    <div class="rule_list">
+                        <b><i>输入错误：</i></b>
+                        <p>输入内容：XCIX1，<a href="javascript:$('.get_value_input').val('XCIX1');$('.get_value_btn').click();document.getElementById('wrapper').scrollIntoView({ behavior: 'smooth' });" style="color: #ff6969;">点击此处</a>可以查看输入错误时候的提示</p>
                     </div>
                 </div>
             </div>

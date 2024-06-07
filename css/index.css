@@ -8,12 +8,22 @@
     --mix-width: 800px;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+.top {
+    position: fixed;
+    margin-top: 0px;
+}
+
 .header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     background-color: #d5d5d5;
     min-width: var(--mix-width);
+    width: 100vw;
 }
 
 .header_title,
@@ -29,9 +39,10 @@
 .wrapper {
     display: flex;
     flex-direction: column;
-    margin: 20px auto;
+    margin: 0px auto;
     min-width: var(--mix-width);
     width: 60vw;
+    padding-top: 70px;
 }
 
 /* 输入条样式 */
@@ -61,7 +72,8 @@
 .get_value_input {
     width: 260px;
     height: var(--height);
-    font-size: 20px;
+    font-size: 18px;
+    padding: 10px;
 }
 
 /* 转换按钮 */
@@ -87,13 +99,14 @@
     width: auto;
     margin-left: -2px;
     /*修正border左右的1px*/
+    margin-bottom: 50px;
 }
 
 /* 结果框 */
 .output_msg {
     height: auto;
     min-height: var(--height);
-    width: calc(60vw);
+    /* width: calc(60vw); */
     min-width: var(--mix-width);
     font-size: 20px;
     border: 1px #000000 solid;
@@ -105,7 +118,7 @@
 .output_tips {
     height: auto;
     min-height: var(--height);
-    width: calc(60vw);
+    /* width: calc(60vw); */
     min-width: var(--mix-width);
     font-size: 20px;
     border: 1px #000000 solid;
@@ -148,14 +161,15 @@
 }
 
 .roman_info,
-.roman_rule {
+.roman_rule,
+.roman_example {
     margin: 6px 10px;
     padding: 4px 4px 10px;
     border-bottom: 1px #ccc groove;
     /*dashed*/
 }
 
-.roman_rule:last-of-type {
+.roman_example:last-of-type {
     border: none;
 }
 
@@ -166,4 +180,65 @@
 
 .rule_list:last-of-type {
     border: none;
+}
+
+
+
+
+/* 响应式布局 - 媒体查询 */
+@media screen and (max-width: 800px) {
+    :root {
+        --height: 36px;
+        --mix-width: 360px;
+    }
+
+    #input {
+        display: none;
+    }
+
+    .wrapper {
+        padding-top: 60px;
+        /* 调整以适应较小屏幕 */
+        width: 90vw;
+        /* 更好地适应小屏幕 */
+    }
+
+    .extra_development {
+        display: none;
+    }
+
+    .contain {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        /* background-color: #0000003f; */
+    }
+
+    .get_value {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        /* 调整为自动以适应内容 */
+        /* 确保与下方输出区域不重叠 */
+    }
+
+    .get_value div {
+        margin: 0 0px;
+    }
+
+    .get_value_input,
+    .get_value_btn {
+        width: calc(100% - 4px);
+    }
+
+    .get_value_input {
+        margin-bottom: 10px;
+    }
+
+
+    .output {
+        margin-top: 20px;
+        width: 100%;
+        /* 确保输出区域与上方输入区域之间有足够的间距 */
+    }
 }
